@@ -1,8 +1,8 @@
 //When page loads it performs everything inside the brackets
 document.addEventListener("DOMContentLoaded", function () {
   const filmsEndpoint = 'http://localhost:3000/films';
-// Function to decrement ticket count by 1 and update API
-  function decrementTicket(movieId) {
+// Function to reduce ticket count by 1 and update API
+  function reduceTicket(movieId) {
     const ticketNumElement = document.getElementById("ticket-num");
     let ticketsRemaining = parseInt(ticketNumElement.textContent);
     if (ticketsRemaining > 0) {
@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("ticket-num").textContent = movieData.tickets_sold;
     document.getElementById("film-id").textContent = movieData.id; 
   }
-  // Add event listener to the "Buy Ticket" button that decrements the ticket number each time its clicked
-  document.getElementById("buy-ticket").addEventListener("click", function () {decrementTicket();});
+  // Add event listener to the "Buy Ticket" button that reduces the ticket number each time its clicked
+  document.getElementById("buy-ticket").addEventListener("click", function () {reduceTicket();});
   //This function deletes the movie from the api then deletes it from the list
   function deleteMovie(movieId) {
     fetch(`${filmsEndpoint}/${movieId}`, {
